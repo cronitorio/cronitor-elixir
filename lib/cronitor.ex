@@ -9,7 +9,7 @@ defmodule Cronitor do
     url = get_url(code, "run", nil, opts)
     ping_cronitor(url)
   end
-  
+
   @spec complete(code, opts) :: boolean
   def complete(code, opts \\ []) do
     url = get_url(code, "complete", nil, opts)
@@ -45,10 +45,10 @@ defmodule Cronitor do
 
   @spec ping_cronitor(url :: String.t) :: boolean
   defp ping_cronitor(url) do
-    chars = String.to_char_list(url)
+    chars = String.to_charlist(url)
     case :httpc.request(chars) do
       {:ok, {{_, 200, _}, _, _}} -> true
       _ -> false
     end
-  end  
+  end
 end

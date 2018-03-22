@@ -3,15 +3,15 @@ defmodule Cronitor.Mixfile do
 
   def project do
     [app: :cronitor,
-     version: "1.0.0",
+     version: "1.1.0",
      name: "Cronitor",
      source_url: "https://github.com/jordan0day/cronitor.git",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps,
+     deps: deps(),
      description: "An extremely simple wrapper for the cronitor.io ping endpoints.",
-     package: package]
+     package: package()]
   end
 
   # Configuration for the OTP application
@@ -32,7 +32,7 @@ defmodule Cronitor.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:dialyze, "~>0.2", only: :dev}
+      {:dialyxir, "0.5.1", only: :dev}
     ]
   end
 
